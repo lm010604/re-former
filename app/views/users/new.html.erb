@@ -1,0 +1,78 @@
+
+<%# <h1>New User</h1> %>
+
+<%# <form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %> 
+    <%# <div>
+        <label for="username">Username</label><br>
+        <input type="text" name="user[username]" id="username">
+    </div>
+
+    <div>
+        <label for="email">Email</label><br>
+        <input type="email" name="user[email]" id="email">
+    </div>
+
+    <div>
+        <label for="password">Password</label><br>
+        <input type="password" name="user[password]" id="password">
+    </div>
+
+    <input type="submit" value="Create User">
+</form> %>
+
+<%# <h1>New User</h1> %>
+
+<%# <%= form_tag("/users", method: "post") do %>
+    <%# <div>
+        <%= label_tag :username, "Username" %>
+        <%# <%= text_field_tag :username %>
+    <%# </div> %>
+
+    <%# <div>
+        <%# <%= label_tag :email, "Email" %>
+        <%# <%= email_field_tag :email %>  
+    <%# </div> %>
+
+    <%# <div>
+        <%= label_tag :password, "Password" %>
+        <%# <%= password_field_tag :password %>
+    <%# </div> %>
+
+    <%# <%= submit_tag "Create User" %> 
+<%# <% end %> 
+
+<h1>New User</h1>
+
+<%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :username, "Your user name here" %>
+    <%= form.text_field :username, placeholder: "CoolUser42", value: "DefaultUser" %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: "example@example.com" %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, placeholder: "Enter your password" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create User" %>
+  </div>
+<% end %>
+
