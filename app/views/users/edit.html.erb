@@ -14,9 +14,8 @@
 
   <div>
     <%= form.label :username, "Your user name here" %>
-    <%= form.text_field :username, placeholder: "CoolUser42", value: "DefaultUser" %>
+    <%= form.text_field :username, placeholder: "CoolUser42" %>
   </div>
-
   <div>
     <%= form.label :email %>
     <%= form.email_field :email, placeholder: "example@example.com" %>
@@ -28,6 +27,6 @@
   </div>
 
   <div>
-    <%= form.submit "Create User" %>
+    <%= form.submit "Edit User" %>
   </div>
 <% end %>
